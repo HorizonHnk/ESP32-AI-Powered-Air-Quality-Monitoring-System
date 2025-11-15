@@ -1,33 +1,27 @@
 # 🤖 ESP32 AI-Powered Air Quality Monitoring System
 
-> **Advanced air quality monitoring system with integrated Google Gemini AI chatbot featuring voice calls, video calls, image analysis, and real-time sensor data visualization.**
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![ESP32](https://img.shields.io/badge/ESP32-DevKit-blue.svg)](https://www.espressif.com/en/products/socs/esp32)
-[![Gemini AI](https://img.shields.io/badge/Gemini-2.0%20Flash-orange.svg)](https://ai.google.dev/)
-[![Arduino](https://img.shields.io/badge/Arduino-IDE-00979D.svg)](https://www.arduino.cc/)
+[![Gemini AI](https://img.shields.io/badge/Gemini-2.0%20Flash-orange.svg)](https://ai.google.dev)
+[![Arduino IDE](https://img.shields.io/badge/Arduino-IDE-green.svg)](https://www.arduino.cc/en/software)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+
+> **Advanced Air Quality Monitoring with AI-Powered Multimodal Chatbot Interface**  
+> Real-time CO2 monitoring, automatic fan control, and intelligent alerts powered by Google Gemini AI with voice, video, and image capabilities.
 
 ---
 
-## 🌟 Live Demo
-
-**🌐 Live Website:** [air-monitoring-esp32.netlify.app](https://air-monitoring-esp32.netlify.app/)
-
-Access the full AI chatbot interface with text, voice, video, and image capabilities - no hardware required!
-
----
-
-## 📋 Table of Contents
+## 📑 Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
+- [Live Demo](#-live-demo)
 - [Hardware Requirements](#-hardware-requirements)
 - [Software Requirements](#-software-requirements)
-- [Installation](#-installation)
-- [Configuration](#-configuration)
-- [Usage](#-usage)
-- [AI Capabilities](#-ai-capabilities)
-- [Safety Thresholds](#-safety-thresholds)
+- [Getting Started](#-getting-started)
+- [Installation Guide](#-installation-guide)
+- [Code Explanation](#-code-explanation)
+- [AI Chatbot Features](#-ai-chatbot-features)
+- [API Configuration](#-api-configuration)
 - [Troubleshooting](#-troubleshooting)
 - [Contributing](#-contributing)
 - [Contact](#-contact)
@@ -35,691 +29,978 @@ Access the full AI chatbot interface with text, voice, video, and image capabili
 
 ---
 
-## 🎯 Overview
+## 🌟 Overview
 
-This project integrates **Google Gemini AI** into an **ESP32-based air quality monitoring system**, creating an intelligent IoT device that can:
+This project integrates **Google Gemini 2.0 Flash AI** with an **ESP32 microcontroller** to create an intelligent air quality monitoring system. The system features a sophisticated web-based chatbot interface that supports text, voice, image, and video interactions, making it easy to monitor air quality, control hardware, and get intelligent insights about your environment.
 
-- Monitor real-time CO2 levels and air quality
-- Control fans and alert systems automatically
-- Interact via AI chatbot with voice, video, and text
-- Analyze images and provide intelligent insights
-- Operate standalone on ESP32 hardware or via web interface
+### What Makes This Special?
 
-**Key Innovation:** This is one of the first open-source projects to successfully integrate Gemini 2.0 Flash AI directly into ESP32 hardware with full multimodal capabilities.
+- **🧠 AI-Powered Interface**: Full Gemini AI integration with multimodal capabilities (text, voice, image, video)
+- **📊 Real-Time Monitoring**: Live CO2 level tracking with automatic alerts
+- **🌐 Web-Based Control**: Access from any device on your network
+- **🎤 Voice Interaction**: Natural language conversations with the AI assistant
+- **📹 Video Analysis**: AI can see and analyze your environment during video calls
+- **⚙️ Smart Automation**: Automatic fan control based on air quality thresholds
+- **📱 Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
 
 ---
 
 ## ✨ Features
 
-### 🎙️ AI Communication
-- **💬 Text Chat** - Natural language conversations with AI
-- **📷 Image Analysis** - Upload and analyze images with AI vision
-- **🎤 Voice Input** - Speech-to-text for hands-free messaging
-- **📞 Voice Calls** - Real-time voice conversations with AI
-- **📹 Video Calls** - Live video with AI visual analysis
-- **🔄 Camera Switching** - Front/back camera support on mobile
+### 🤖 AI Chatbot Capabilities
 
-### 📊 Air Quality Monitoring
-- **Real-time CO2 measurement** (PPM)
-- **Air quality classification** (Good/Fair/Poor/Bad)
-- **Automatic fan control** (PWM speed regulation)
-- **Audio alerts** with buzzer patterns
-- **24-hour data logging** (1440 data points)
-- **Web-based dashboard**
+#### **Text Chat**
+- Natural language conversations about air quality
+- Hardware control and status queries
+- Safety threshold explanations
+- Setup and troubleshooting assistance
 
-### 🔧 Technical Features
-- **Ultra-responsive design** - Works on all screen sizes (320px to 4K)
-- **Persistent chat history** - Saved in browser localStorage
-- **Offline fallback** - Access Point mode when WiFi unavailable
-- **Low memory footprint** - Optimized for ESP32 constraints
-- **Secure HTTPS** - Compatible with Gemini API requirements
+#### **Voice Interaction**
+- 📞 **Voice Calls**: Real-time voice conversations with the AI
+- 🎤 **Voice Input**: Speech-to-text for hands-free messaging
+- 🔊 **Text-to-Speech**: AI responses spoken aloud
+- 🎙️ **Continuous Recognition**: Natural conversation flow during calls
+
+#### **Video Capabilities**
+- 📹 **Video Calls**: Live video chat with AI visual analysis
+- 📸 **Image Analysis**: Upload images for AI interpretation
+- 🔄 **Camera Switching**: Front/back camera support on mobile
+- 🎬 **Real-Time Analysis**: AI sees and comments on your environment
+
+### 📊 System Monitoring
+
+- **Real-time CO2 Levels**: Current PPM readings with color-coded status
+- **Air Quality Index**: Good, Fair, Poor, Bad classifications
+- **Data Point Tracking**: Historical data collection (up to 1440 points)
+- **Fan Control**: Automatic/manual modes with speed adjustment
+- **Alert System**: Buzzer patterns for different danger levels
+
+### 🎛️ Hardware Control
+
+- **Fan Management**: ON/OFF control with variable speed (0-100%)
+- **Mode Selection**: Automatic or manual fan operation
+- **Alert Patterns**: 
+  - Pattern 0: Silent (Safe levels)
+  - Pattern 1: Caution (500+ PPM)
+  - Pattern 2: Warning (750+ PPM)
+  - Pattern 3: Danger (1000+ PPM)
 
 ---
 
-## 🛠️ Hardware Requirements
+## 🌐 Live Demo
+
+**Live Website**: [https://air-monitoring-esp32.netlify.app/](https://air-monitoring-esp32.netlify.app/)
+
+> This demonstrates the web interface running on ESP32. You can deploy this same interface on your own ESP32 board!
+
+---
+
+## 🔧 Hardware Requirements
 
 ### Essential Components
 
-| Component | Description | Quantity |
-|-----------|-------------|----------|
-| **ESP32 DevKit** | Main microcontroller board | 1 |
-| **MQ-135 Sensor** | Air quality/CO2 sensor | 1 |
-| **12V DC Fan** | Ventilation control | 1 |
-| **L298N Motor Driver** | PWM fan speed control | 1 |
-| **Buzzer** | Audio alerts (5V active) | 1 |
-| **USB Cable** | Micro-USB or Type-C (data) | 1 |
-| **Breadboard** | Prototyping | 1 |
-| **Jumper Wires** | Connections | 20+ |
-| **Power Supply** | 5V 2A for ESP32 + 12V for fan | 1 |
+| Component | Specification | Purpose |
+|-----------|--------------|---------|
+| **ESP32 DevKit** | ESP32-WROOM-32 | Main microcontroller |
+| **CO2 Sensor** | MQ-135 or MH-Z19 | Air quality measurement |
+| **DC Fan** | 5V/12V with PWM | Air circulation |
+| **Buzzer** | Active/Passive 5V | Alert notifications |
+| **Motor Driver** | L298N or similar | Fan speed control |
+| **USB Cable** | Micro-USB or Type-C | Programming & power |
+| **Jumper Wires** | Male-to-Male/Female | Connections |
+| **Breadboard** | Standard size | Prototyping (optional) |
 
-### Optional Components
-- **DHT22 Sensor** - Temperature and humidity monitoring
-- **OLED Display** - Local data visualization
-- **SD Card Module** - Extended data logging
+### Pin Configuration
 
-### Wiring Diagram
-
-```
-ESP32 DevKit Pinout:
-├── GPIO34 (ADC1_6) ──> MQ-135 Analog Out
-├── GPIO25 (DAC1)   ──> Buzzer Signal
-├── GPIO26 (PWM)    ──> L298N Enable (Fan Speed)
-├── GPIO27          ──> L298N IN1 (Fan Direction)
-├── GPIO14          ──> L298N IN2 (Fan Direction)
-├── 5V              ──> MQ-135 VCC, Buzzer VCC
-└── GND             ──> All GNDs
-
-L298N Motor Driver:
-├── OUT1, OUT2      ──> 12V DC Fan
-├── +12V            ──> External 12V power supply
-└── GND             ──> Common ground with ESP32
+```cpp
+// Default GPIO Pins (customize as needed)
+CO2_SENSOR_PIN  = GPIO 34  // Analog input
+FAN_PWM_PIN     = GPIO 25  // PWM output
+BUZZER_PIN      = GPIO 26  // Digital output
+LED_STATUS_PIN  = GPIO 2   // Built-in LED
 ```
 
 ---
 
 ## 💻 Software Requirements
 
-### Required Software
+### Development Environment
 
-1. **Arduino IDE** (v2.0 or later)
+1. **Arduino IDE** (v1.8.19 or later) or **Arduino IDE 2.x**
    - Download: [arduino.cc/en/software](https://www.arduino.cc/en/software)
 
-2. **CP2102 USB Driver** (Silicon Labs)
+2. **ESP32 Board Manager** (v2.0.14 or earlier)
+   - ⚠️ **Important**: Avoid v2.0.15+ due to motor driver compatibility issues
+
+3. **CP210x USB Driver** (Silicon Labs)
    - Required for ESP32 USB communication
-   - Download: [silabs.com/developers/usb-to-uart-bridge-vcp-drivers](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers)
+   - Download: [Silicon Labs CP210x Driver](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers)
 
-3. **ESP32 Board Package**
-   - Install via Arduino IDE Board Manager
-   - Version: **2.0.14** (recommended - avoid 2.0.15+ for motor driver compatibility)
+### Required Libraries
 
-### Arduino IDE Setup Video Tutorial
-
-📺 **Complete Arduino IDE + ESP32 Setup Guide:**  
-[YouTube Playlist - ESP32 Tutorials](https://www.youtube.com/playlist?list=PLrZbkNpNVSwwkA3nnQ5o0Pg8w6GCSDgYA)
-
-**Topics Covered:**
-1. Installing Arduino IDE
-2. Installing CP2102 USB drivers
-3. Adding ESP32 board support
-4. Configuring COM ports
-5. Setting up WiFi connection
-6. Uploading your first program
-
----
-
-## 📥 Installation
-
-### Step 1: Install Arduino IDE
-
-1. Download Arduino IDE from [arduino.cc](https://www.arduino.cc/en/software)
-2. Install for your operating system (Windows/Mac/Linux)
-3. Launch Arduino IDE
-
-### Step 2: Install CP2102 Driver
-
-1. Download driver from [Silicon Labs website](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers)
-2. Extract and run installer:
-   - **Windows:** `CP210x_Windows_Drivers.exe`
-   - **Mac:** `CP210x_VCP_Mac.dmg`
-   - **Linux:** Follow included instructions
-3. Restart your computer
-
-### Step 3: Add ESP32 Board Support
-
-1. Open Arduino IDE
-2. Go to **File → Preferences**
-3. In "Additional Board Manager URLs" add:
-   ```
-   https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
-   ```
-4. Click **OK**
-5. Go to **Tools → Board → Board Manager**
-6. Search for "ESP32"
-7. Install **"esp32 by Espressif Systems"** version **2.0.14** ⚠️
-   - ⚠️ **Important:** Do NOT use version 2.0.15+ (motor driver compatibility issues)
-
-### Step 4: Configure Board Settings
-
-1. Connect ESP32 to computer via USB
-2. Go to **Tools → Board** and select:
-   - **"ESP32 Dev Module"**
-3. Go to **Tools → Port** and select:
-   - Windows: `COM3`, `COM4`, etc.
-   - Mac: `/dev/cu.usbserial-XXXX`
-   - Linux: `/dev/ttyUSB0`
-4. Go to **Tools → Partition Scheme** and select:
-   - **"Huge APP (3MB No OTA/1MB SPIFFS)"**
-   - ⚠️ This is crucial for web interface storage!
-
-### Step 5: Upload the Code
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/esp32-air-monitoring-ai.git
-   cd esp32-air-monitoring-ai
-   ```
-
-2. Open `air_monitoring_esp32.ino` in Arduino IDE
-
-3. **Configure WiFi credentials** (lines 7-8):
-   ```cpp
-   const char* ssid = "YOUR_WIFI_NAME";
-   const char* password = "YOUR_WIFI_PASSWORD";
-   ```
-   ⚠️ **Important:** Use **2.4GHz WiFi only** (ESP32 doesn't support 5GHz)
-
-4. Click **Upload** button (→) or press `Ctrl+U`
-
-5. Wait for upload to complete (typically 30-60 seconds)
-
-6. Open **Serial Monitor** (`Ctrl+Shift+M`) at **115200 baud**
-
-7. You should see:
-   ```
-   === ESP32 AI Chatbot Starting ===
-   Connecting to WiFi....
-   WiFi connected!
-   IP address: 192.168.1.XXX
-   Web server started!
-   ```
-
----
-
-## ⚙️ Configuration
-
-### WiFi Setup
-
-#### Option 1: Home WiFi (Recommended)
-
-Edit lines 7-8 in the Arduino code:
 ```cpp
-const char* ssid = "YourWiFiName";
-const char* password = "YourWiFiPassword";
+#include <WiFi.h>         // ESP32 WiFi (pre-installed)
+#include <WebServer.h>    // Web server (pre-installed)
+#include <time.h>         // Time functions (pre-installed)
 ```
 
-#### Option 2: Mobile Hotspot
+### Browser Requirements (for Chatbot)
 
-1. Enable mobile hotspot on your phone
-2. Set to **2.4GHz frequency**
-3. Use hotspot name and password in code
-
-#### Option 3: Access Point Mode (Offline)
-
-If WiFi connection fails after 10 seconds, ESP32 automatically creates its own network:
-- **Network Name:** `ESP32_AI_Chatbot`
-- **Password:** `chatbot123`
-- **IP Address:** `192.168.4.1`
-
-### Gemini AI API Key
-
-1. Visit [Google AI Studio](https://aistudio.google.com/)
-2. Sign in with Google account
-3. Click **"Get API Key"**
-4. Copy your API key
-5. In the web interface, click **Settings**
-6. Paste your API key and click **Save**
-
-**Note:** A default API key is included for testing, but it's recommended to use your own.
-
-### Voice & Speech Settings
-
-Available in the web interface **Settings** panel:
-- **Voice Selection:** Choose from 50+ TTS voices
-- **Speech Rate:** 0.5x to 2.0x speed
-- **Auto-speak:** Automatically read AI responses
+- **Chrome/Edge**: Recommended (full features)
+- **Safari**: iOS/macOS support
+- **Firefox**: Basic support
+- Features requiring browser support:
+  - Web Speech API (voice recognition)
+  - MediaDevices API (camera/microphone)
+  - Speech Synthesis API (text-to-speech)
 
 ---
 
-## 🚀 Usage
+## 🚀 Getting Started
 
-### Accessing the Interface
+### Quick Start (5 Minutes)
 
-After uploading code and connecting to WiFi:
+1. **Install Arduino IDE** and **CP210x Driver**
+2. **Configure ESP32 Board Manager** in Arduino IDE
+3. **Clone this repository**
+4. **Get Gemini API Key** (free tier available)
+5. **Upload code** to ESP32
+6. **Connect to ESP32 WiFi** or hotspot
+7. **Access chatbot** via web browser
 
-1. **Find your ESP32's IP address:**
-   - Check Serial Monitor (115200 baud)
-   - Or check your router's connected devices
-   - Example: `192.168.1.105`
+Let's dive into detailed steps!
 
-2. **Open web browser and navigate to:**
-   ```
-   http://192.168.1.105
-   ```
+---
 
-3. **You'll see the home page with:**
-   - System status (CO2, Air Quality, Fan, Buzzer)
-   - Feature list
-   - "Launch AI Chatbot" button
+## 📥 Installation Guide
 
-4. **Click "Launch AI Chatbot"** to access full AI interface
+### Step 1: Arduino IDE Setup
 
-### Using the AI Chatbot
+#### 1.1 Install Arduino IDE
 
-#### Text Chat
-1. Type your message in the input box
-2. Press `Enter` or click send button (➤)
-3. AI responds with intelligent answers about air quality or general topics
+**Option A: Download from Official Website** (Recommended)
+```plaintext
+1. Visit: https://www.arduino.cc/en/software
+2. Download Windows/Mac/Linux version
+3. Run installer and follow prompts
+4. Launch Arduino IDE
+```
 
-**Example queries:**
-- "What's my current air quality?"
-- "Is 600 PPM dangerous?"
-- "How do I improve ventilation?"
-- "Explain the safety thresholds"
+**Option B: Microsoft Store** (Windows Only)
+```plaintext
+1. Open Microsoft Store
+2. Search "Arduino IDE"
+3. Click "Get" to install
+```
 
-#### Image Analysis
-1. Click camera icon (📷)
-2. Select image from device
-3. Optionally add text description
-4. Send to AI for analysis
+#### 1.2 Add ESP32 Board Manager
 
-**Use cases:**
-- Analyze room layout for ventilation
-- Identify air quality issues visually
-- Get setup recommendations
+```plaintext
+1. Open Arduino IDE
+2. Go to: File → Preferences
+3. In "Additional Board Manager URLs", add:
+   https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+4. Click OK
+5. Go to: Tools → Board → Boards Manager
+6. Search "esp32"
+7. Install "esp32 by Espressif Systems" version 2.0.14 or earlier
+   ⚠️ IMPORTANT: Do NOT install v2.0.15+ (motor driver issues)
+8. Wait for installation to complete
+```
 
-#### Voice Input
-1. Click microphone icon (🎤)
-2. Speak your message
-3. Speech converts to text automatically
-4. Edit if needed, then send
+#### 1.3 Select ESP32 Board
 
-#### Voice Calls
-1. Click **"📞 Call AI"** button
+```plaintext
+1. Go to: Tools → Board → ESP32 Arduino
+2. Select: "ESP32 Dev Module"
+3. Set Partition Scheme: Tools → Partition Scheme → "Huge APP (3MB)"
+   (Required for large web applications)
+```
+
+---
+
+### Step 2: Driver Installation
+
+#### 2.1 Install CP210x USB Driver
+
+**For Windows:**
+```plaintext
+1. Download from: https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
+2. Download "CP210x Windows Drivers"
+3. Extract ZIP file
+4. Run "CP210xVCPInstaller_x64.exe" (64-bit) or x86 version
+5. Follow installation wizard
+6. Restart computer if prompted
+```
+
+**For Mac:**
+```plaintext
+1. Download "CP210x Mac OSX Drivers"
+2. Open DMG file
+3. Run installer package
+4. Allow system extension in Security & Privacy settings
+5. Restart computer
+```
+
+**For Linux:**
+```bash
+# Usually pre-installed, but if needed:
+sudo apt-get install brltty
+sudo modprobe cp210x
+```
+
+#### 2.2 Verify Driver Installation
+
+```plaintext
+1. Connect ESP32 to USB port
+2. Open Device Manager (Windows) or System Information (Mac)
+3. Look under "Ports (COM & LPT)"
+4. You should see: "Silicon Labs CP210x USB to UART Bridge (COM#)"
+5. Note the COM port number (e.g., COM11)
+```
+
+**Troubleshooting:**
+- If device shows as "Unknown Device":
+  - Driver not properly installed
+  - Try different USB port
+  - Use USB 2.0 port instead of 3.0
+- If COM port disappears when unplugged:
+  - ✅ Normal behavior - driver working correctly
+
+---
+
+### Step 3: Clone Repository
+
+```bash
+# Clone the repository
+git clone https://github.com/HorizonHnk/ESP32-AI-Powered-Air-Quality-Monitoring-System.git
+
+# Navigate to project folder
+cd ESP32-AI-Powered-Air-Quality-Monitoring-System
+```
+
+---
+
+### Step 4: Configure WiFi and API
+
+#### 4.1 WiFi Setup
+
+Open the `.ino` file and modify these lines:
+
+```cpp
+// WiFi credentials - CHANGE THESE!
+const char* ssid = "YOUR_WIFI_NAME";        // Your WiFi network name
+const char* password = "YOUR_WIFI_PASSWORD"; // Your WiFi password
+
+// Access Point credentials (fallback if WiFi fails)
+const char* ap_ssid = "ESP32_AI_Chatbot";
+const char* ap_password = "chatbot123";
+```
+
+**Important WiFi Notes:**
+- ✅ Use 2.4 GHz WiFi networks (ESP32 doesn't support 5 GHz)
+- ✅ Avoid special characters in WiFi names/passwords
+- ✅ Ensure strong signal where ESP32 is located
+- ⚠️ **Never commit your actual WiFi credentials to GitHub!**
+
+**For GitHub Repository:**
+```cpp
+// Use placeholder values like:
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+// Users will replace with their own credentials
+```
+
+#### 4.2 Get Gemini API Key (Free!)
+
+```plaintext
+1. Visit: https://aistudio.google.com/
+2. Sign in with Google account
+3. Click "Get API Key" in left sidebar
+4. Click "Create API Key"
+5. Copy your API key
+
+Free Tier Benefits:
+- 1,500 requests per day
+- Gemini 2.0 Flash model access
+- Multimodal capabilities (text, image, audio)
+- No credit card required
+```
+
+#### 4.3 Add API Key to Code
+
+**⚠️ SECURITY WARNING: Never commit API keys to GitHub!**
+
+**Option A: Hardcode (Quick Testing Only)**
+```javascript
+// Find this line in the code (~line 10 in JavaScript section):
+let geminiApiKey = '';  // Default empty
+
+// Replace with your key:
+let geminiApiKey = 'YOUR_API_KEY_HERE';  // Keep this private!
+```
+
+**Option B: Settings Panel (Recommended - Secure)**
+```plaintext
+1. Upload code to ESP32 with empty API key
+2. Access chatbot interface
+3. Click "Settings" button
+4. Enter API key (stored locally in browser)
+5. Click "Save"
+6. Key stored in browser localStorage only
+7. Never exposed in code or GitHub
+```
+
+---
+
+### Step 5: Upload Code to ESP32
+
+#### 5.1 Configure Upload Settings
+
+```plaintext
+Tools Menu Settings:
+├── Board: "ESP32 Dev Module"
+├── Upload Speed: "921600"
+├── CPU Frequency: "240MHz (WiFi/BT)"
+├── Flash Frequency: "80MHz"
+├── Flash Mode: "QIO"
+├── Flash Size: "4MB (32Mb)"
+├── Partition Scheme: "Huge APP (3MB No OTA/1MB SPIFFS)"
+├── Core Debug Level: "None"
+└── Port: [Your COM Port from Device Manager]
+```
+
+#### 5.2 Upload Process
+
+```plaintext
+1. Connect ESP32 to computer via USB
+2. Verify correct COM port selected: Tools → Port
+3. Click "Upload" button (→) or Ctrl+U
+4. Wait for "Connecting..." message
+5. Some boards require holding BOOT button during upload
+6. Watch for "Hard resetting via RTS pin..."
+7. Success message: "Leaving... Hard resetting via RTS pin..."
+```
+
+**Upload Progress:**
+```plaintext
+Sketch uses 1,342,234 bytes (43%) of program storage space.
+Connecting........_____.....
+Chip is ESP32-D0WDQ6 (revision 1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+Writing at 0x00010000... (100%)
+Hard resetting via RTS pin...
+```
+
+#### 5.3 Monitor Serial Output
+
+```plaintext
+1. Click: Tools → Serial Monitor
+2. Set baud rate to: 115200
+3. You should see:
+   === ESP32 AI Chatbot Starting ===
+   Connecting to WiFi.........
+   WiFi connected!
+   IP address: 192.168.x.x
+   Web server started!
+   ===============================
+```
+
+---
+
+### Step 6: Access the AI Chatbot
+
+#### Option A: Local Network (Recommended)
+
+```plaintext
+1. Ensure your device is on the same WiFi network as ESP32
+2. Note the IP address from Serial Monitor (e.g., 192.168.1.xxx)
+3. Open web browser
+4. Navigate to: http://[YOUR_ESP32_IP_ADDRESS]
+5. Click "Launch AI Chatbot"
+```
+
+**Finding Your ESP32 IP Address:**
+```plaintext
+- Check Serial Monitor after upload (115200 baud)
+- Look for: "IP address: 192.168.x.x"
+- Or check your router's connected devices list
+```
+
+#### Option B: Access Point Mode (Backup)
+
+If WiFi connection fails:
+```plaintext
+1. ESP32 creates its own WiFi hotspot
+2. Connect to WiFi: "ESP32_AI_Chatbot"
+3. Password: "chatbot123"
+4. Open browser
+5. Navigate to: http://192.168.4.1
+```
+
+---
+
+## 📝 Code Explanation
+
+### Architecture Overview
+
+```plaintext
+ESP32 System Architecture:
+┌─────────────────────────────────────┐
+│         ESP32 Microcontroller       │
+├─────────────────────────────────────┤
+│  WiFi Module  │  Web Server Module  │
+│  ─────────────┤─────────────────────│
+│  Sensor Input │  Actuator Control   │
+│  (CO2, Temp)  │  (Fan, Buzzer, LED) │
+└────────┬────────────────────────────┘
+         │
+         ├─── HTTP Requests ──────────→ Web Interface
+         │                               (HTML/CSS/JS)
+         │                                     │
+         └─── Data & Control ────────→ Gemini AI API
+                                         (Multimodal AI)
+```
+
+### Key Code Sections
+
+#### 1. Core Setup Function
+
+```cpp
+void setup() {
+    Serial.begin(115200);  // Initialize serial communication
+    Serial.println("\n\n=== ESP32 AI Chatbot Starting ===");
+    
+    // Initialize WiFi connection
+    initWiFi();
+    
+    // Configure web server routes
+    server.on("/", HTTP_GET, handleRoot);           // Home page
+    server.on("/chatbot", HTTP_GET, handleChatbot); // Chatbot interface
+    server.onNotFound(handleNotFound);              // 404 handler
+    
+    // Start web server on port 80
+    server.begin();
+    Serial.println("Web server started!");
+    Serial.print("Access chatbot at: http://");
+    Serial.println(WiFi.localIP());
+}
+```
+
+**What it does:**
+- Starts serial communication at 115200 baud
+- Connects to WiFi network
+- Sets up three web routes (home, chatbot, 404)
+- Starts HTTP server
+- Prints access URL to Serial Monitor
+
+#### 2. WiFi Initialization
+
+```cpp
+void initWiFi() {
+    WiFi.mode(WIFI_STA);              // Station mode
+    WiFi.begin(ssid, password);       // Connect to WiFi
+    
+    // Wait for connection (max 20 attempts)
+    int attempts = 0;
+    while (WiFi.status() != WL_CONNECTED && attempts < 20) {
+        delay(500);
+        Serial.print(".");
+        attempts++;
+    }
+    
+    if (WiFi.status() == WL_CONNECTED) {
+        // Connected successfully
+        Serial.println("\nWiFi connected!");
+        Serial.print("IP address: ");
+        Serial.println(WiFi.localIP());
+        
+        // Sync time with NTP server
+        configTime(0, 0, "pool.ntp.org");
+    } else {
+        // Fallback to Access Point mode
+        Serial.println("\nWiFi failed, starting AP mode");
+        WiFi.mode(WIFI_AP);
+        WiFi.softAP(ap_ssid, ap_password);
+        Serial.print("AP IP address: ");
+        Serial.println(WiFi.softAPIP());  // Usually 192.168.4.1
+    }
+}
+```
+
+**Features:**
+- Automatic retry mechanism (10 seconds)
+- Fallback to AP mode if connection fails
+- NTP time synchronization
+- IP address reporting
+
+#### 3. Main Loop
+
+```cpp
+void loop() {
+    // Handle incoming HTTP requests
+    server.handleClient();
+    
+    // Update mock data every 10 seconds for demo
+    static unsigned long lastUpdate = 0;
+    if (millis() - lastUpdate > 10000) {
+        lastUpdate = millis();
+        
+        // Simulate sensor readings
+        mockCO2 = random(200, 800);
+        
+        // Calculate air quality
+        if (mockCO2 < 250) mockAirQuality = "Good";
+        else if (mockCO2 < 500) mockAirQuality = "Fair";
+        else if (mockCO2 < 750) mockAirQuality = "Poor";
+        else mockAirQuality = "Bad";
+        
+        // Update other system values
+        mockDataPoints = random(30, 100);
+        mockFanSpeed = random(0, 100);
+        mockBuzzerPattern = mockCO2 > 500 ? random(1, 4) : 0;
+    }
+    
+    delay(10);  // Small delay to prevent watchdog reset
+}
+```
+
+**Functions:**
+- Continuously processes web requests
+- Updates sensor values periodically
+- Adjusts fan and buzzer based on air quality
+- Prevents ESP32 watchdog timer reset
+
+#### 4. Home Page Handler
+
+```cpp
+void handleRoot() {
+    // Build complete HTML page
+    String html = "<!DOCTYPE html>";
+    html += "<html><head>";
+    html += "<meta charset=\"UTF-8\">";
+    html += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+    html += "<title>ESP32 AI Assistant</title>";
+    
+    // CSS styles (responsive design)
+    html += "<style>";
+    html += "/* Ultra-responsive styles */";
+    html += "body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }";
+    // ... extensive CSS for mobile/desktop support
+    html += "</style>";
+    
+    // HTML content
+    html += "</head><body>";
+    html += "<div class=\"container\">";
+    html += "<h1>🤖 ESP32 AI Assistant</h1>";
+    html += "<a href=\"/chatbot\" class=\"btn\">Launch AI Chatbot</a>";
+    
+    // Display current system status
+    html += "<div class=\"status-grid\">";
+    html += "Air Quality: " + mockAirQuality;
+    html += "CO2 Level: " + String(mockCO2) + " PPM";
+    html += "Fan Status: " + String(mockFanEnabled ? "ON" : "OFF");
+    // ... more status displays
+    html += "</div>";
+    
+    html += "</body></html>";
+    
+    // Send response
+    server.send(200, "text/html", html);
+}
+```
+
+**Features:**
+- Responsive design (mobile to 4K displays)
+- Real-time system status display
+- Modern gradient UI
+- Launch button for chatbot
+
+#### 5. Chatbot Page Handler
+
+```cpp
+void handleChatbot() {
+    // Stream HTML in chunks (large page)
+    server.setContentLength(CONTENT_LENGTH_UNKNOWN);
+    server.send(200, "text/html", "");
+    
+    // Send HTML structure
+    server.sendContent("<!DOCTYPE html>");
+    server.sendContent("<html lang=\"en\"><head>");
+    
+    // Ultra-responsive CSS
+    server.sendContent("<style>");
+    server.sendContent("/* Responsive styles for all screen sizes */");
+    server.sendContent("@media (max-width: 320px) { /* tiny phones */ }");
+    server.sendContent("@media (min-width: 2560px) { /* 4K displays */ }");
+    server.sendContent("</style>");
+    
+    // Chatbot interface elements
+    server.sendContent("<body>");
+    server.sendContent("<!-- Header with controls -->");
+    server.sendContent("<!-- Chat container -->");
+    server.sendContent("<!-- Video call interface -->");
+    server.sendContent("<!-- Voice call interface -->");
+    server.sendContent("<!-- Input area -->");
+    
+    // Complete JavaScript implementation
+    server.sendContent("<script>");
+    sendCompleteJavaScript();  // Sends all AI functionality
+    server.sendContent("</script>");
+    server.sendContent("</body></html>");
+    server.sendContent("");  // End stream
+}
+```
+
+**Why streaming?**
+- Chatbot page is large (~150KB HTML+JS)
+- Prevents memory overflow on ESP32
+- Progressive loading for better UX
+
+---
+
+## 🤖 AI Chatbot Features
+
+### Text Chat Interface
+
+**Capabilities:**
+```javascript
+// Example conversations the AI can handle:
+"What's the current air quality?"
+"Is it safe to sleep with these CO2 levels?"
+"Turn on the fan"
+"Explain the safety thresholds"
+"How do I reduce CO2 in my room?"
+"Upload image of sensor setup" (with image)
+```
+
+**Features:**
+- 💬 Natural language understanding
+- 📊 Real-time system data access
+- 💡 Intelligent recommendations
+- 📝 Chat history (last 20 messages)
+- 📋 Copy responses to clipboard
+- 🔊 Read responses aloud
+
+### Voice Call System
+
+**How it works:**
+```javascript
+1. Click "📞 Call AI" button
 2. Grant microphone permission
 3. AI greets you and starts listening
-4. Have a natural conversation
-5. Click **"📞 End Call"** when done
+4. Speak naturally - AI responds immediately
+5. Real-time transcript displayed
+6. Click "End Call" when finished
+```
 
-**Call features:**
-- Real-time speech recognition
-- Natural conversation flow
-- Mute/unmute button
-- Call transcript
-- Copy transcript
-- Text-to-speech playback
+**Features:**
+- 🎤 Continuous speech recognition
+- 🔊 Natural voice responses (TTS)
+- 🔇 Mute/unmute control
+- ⏱️ Call duration timer
+- 📝 Live transcription
+- 📋 Copy/speak transcript
+- 📊 Call summary in main chat
 
-#### Video Calls
-1. Click **"📹 Video Call"** button
-2. Grant camera and microphone permissions
-3. AI can see and hear you
-4. Use camera controls:
-   - 🎤 Mute/unmute microphone
-   - 📹 Turn camera on/off
-   - 🔄 Switch front/back camera (mobile)
-   - 📸 Capture and analyze what you're showing
-   - 📋 Copy transcript
-   - 🔊 Read transcript aloud
+**Voice Recognition Flow:**
+```plaintext
+User speaks → Speech Recognition API → Text transcript
+                                          ↓
+                                    Gemini AI processes
+                                          ↓
+                                    AI text response
+                                          ↓
+                              Text-to-Speech API → Audio output
+```
 
-**Video call features:**
-- Automatic visual analysis every 30 seconds
-- Manual "Show AI what I'm doing" button
-- Real-time conversation with visual context
-- Call duration timer
-- Complete transcript
+### Video Call System
+
+**Revolutionary Features:**
+```javascript
+1. Click "📹 Video Call" button
+2. Grant camera + microphone permissions
+3. AI can see your environment!
+4. Speak or show things to AI
+5. AI analyzes and responds
+6. Switch between front/back cameras
+```
+
+**Capabilities:**
+- 🎥 Live video streaming
+- 🤖 AI visual analysis
+- 📸 Manual screenshot analysis ("Show AI What I'm Doing")
+- 🔄 Auto camera switching (mobile)
+- 🔇 Mute audio
+- 📹 Disable camera (privacy)
+- 🎬 Automatic scene analysis (every 30s)
+- 📊 Analysis counter
+- 📝 Video transcript
+
+**Example Use Cases:**
+```plaintext
+"Can you see my CO2 sensor setup? Is it correct?"
+"I'm showing you my room - what can reduce CO2 here?"
+"Is this the right way to connect the fan?"
+"Look at these readings on my multimeter - what do they mean?"
+```
+
+### Image Analysis
+
+**How to use:**
+```plaintext
+1. Click 📷 (camera icon) in chat input
+2. Select image from device
+3. Add text description (optional)
+4. Click send
+5. AI analyzes and responds
+```
+
+**AI can identify:**
+- ✅ Electronic components
+- ✅ Wiring diagrams
+- ✅ Sensor displays
+- ✅ Error messages on screens
+- ✅ Environmental conditions
+- ✅ Safety hazards
 
 ---
 
-## 🧠 AI Capabilities
+## 🔑 API Configuration
 
-### Gemini 2.0 Flash Integration
+### Gemini AI API Setup
 
-This project uses **Google Gemini 2.0 Flash**, the latest multimodal AI model:
+#### Getting Your API Key
 
-**Model Features:**
-- ⚡ **Fast responses** (optimized for real-time interactions)
-- 🖼️ **Vision capabilities** (image analysis)
-- 🎤 **Audio processing** (via Web Speech API)
-- 📊 **Context awareness** (remembers conversation history)
-- 🌍 **Multilingual support** (100+ languages)
+```plaintext
+1. Visit Google AI Studio:
+   https://aistudio.google.com/
 
-### AI Instructions
+2. Sign in with Google account
 
-The AI is configured with specialized knowledge:
+3. Click "Get API Key" (left sidebar)
 
-```
-Current System Context:
-├── Air Quality Status: Real-time PPM readings
-├── Fan Control: Speed and mode (auto/manual)
-├── Buzzer Patterns: Alert status
-├── Safety Thresholds: Predefined danger levels
-└── Hardware Setup: ESP32 DevKit + MQ-135
+4. Create new key or use existing project key
 
-AI Capabilities:
-├── Answer air quality questions
-├── Explain safety thresholds
-├── Provide ventilation recommendations
-├── Troubleshoot hardware issues
-├── Analyze images for air quality factors
-└── General conversation on any topic
+5. Copy API key (format: AIzaSy...)
 ```
 
-### Conversation Examples
+#### Free Tier Limits (2025)
 
-**Air Quality Monitoring:**
-```
-User: What's my current CO2 level?
-AI: Your current CO2 level is 350 PPM, which is in the "Good" 
-range. This is normal indoor air quality and safe for prolonged 
-exposure. Your fan is running at 25% in auto mode.
-```
+```plaintext
+Gemini 2.0 Flash (Recommended):
+├── 1,500 requests/day (free)
+├── 2,000 requests/minute (paid tier)
+├── Max input: 1 million tokens
+├── Max output: 8,192 tokens
+└── Multimodal support: ✅ Text, Image, Audio, Video
 
-**Safety Inquiry:**
-```
-User: Is 750 PPM dangerous?
-AI: 750 PPM is in the WARNING range. While not immediately 
-dangerous, it indicates poor air quality. I recommend increasing 
-ventilation or moving to a well-ventilated area. Your system 
-should be alerting you with buzzer pattern 2.
+Rate Limits:
+├── Text queries: ~100/minute
+├── Image analysis: ~60/minute  
+└── Video analysis: ~15/minute
 ```
 
-**Hardware Help:**
-```
-User: How do I wire the MQ-135 sensor?
-AI: Connect the MQ-135 as follows:
-- VCC to ESP32 5V pin
-- GND to ESP32 GND pin  
-- Analog Out (A0) to ESP32 GPIO34 (ADC1_6)
-Make sure the sensor is powered for 24-48 hours before first 
-use for accurate readings.
-```
+#### API Key Security
 
-**Image Analysis:**
-```
-User: [uploads photo of room] "Is this room well ventilated?"
-AI: Based on the image, I can see a closed room with one small 
-window. For better ventilation, I recommend: 1) Opening the 
-window, 2) Adding a fan near the window for air circulation, 
-3) Keeping the door slightly open for cross-ventilation. Your 
-current CO2 is 520 PPM which is elevated for this room size.
+**✅ DO:**
+```javascript
+// Store in settings (browser localStorage)
+localStorage.setItem('geminiApiKey', 'YOUR_KEY');
+
+// Use environment variables (production)
+const apiKey = process.env.GEMINI_API_KEY;
+
+// Server-side storage (advanced)
+// Key never exposed to client
 ```
 
----
+**❌ DON'T:**
+```javascript
+// ❌ Hardcode in public repositories
+let apiKey = 'AIzaSy...';  // NEVER do this!
 
-## ⚠️ Safety Thresholds
+// ❌ Commit to GitHub
+git add config.js  // Contains API key - DON'T!
 
-### CO2 Level Classifications
-
-| PPM Range | Status | Icon | Description | Action |
-|-----------|--------|------|-------------|--------|
-| **< 250** | Excellent | 🟢 | Outdoor-level fresh air | None needed |
-| **250-500** | Good | 🟢 | Normal indoor levels | Monitor regularly |
-| **500-750** | ⚠️ CAUTION | 🟡 | Elevated, ventilation recommended | Open windows, increase fan |
-| **750-1000** | ⚠️ WARNING | 🟠 | Poor air quality | Immediate ventilation required |
-| **> 1000** | 🚨 DANGER | 🔴 | Hazardous levels | Evacuate room, maximum ventilation |
-
-### Automated Responses
-
-The system automatically responds to CO2 levels:
-
-```cpp
-Air Quality Status:
-├── Good (< 500 PPM)
-│   ├── Fan: Auto mode (25-50%)
-│   └── Buzzer: Silent
-│
-├── Caution (500-750 PPM)
-│   ├── Fan: Auto mode (50-75%)
-│   └── Buzzer: Pattern 1 (slow beep)
-│
-├── Warning (750-1000 PPM)
-│   ├── Fan: Auto mode (75-100%)
-│   └── Buzzer: Pattern 2 (medium beep)
-│
-└── Danger (> 1000 PPM)
-    ├── Fan: Maximum speed (100%)
-    └── Buzzer: Pattern 3 (rapid alarm)
+// ❌ Share in screenshots or videos
+// ❌ Post in public forums or chat
 ```
 
-### Health Effects Reference
+**Protecting Your Key:**
+```plaintext
+1. Add sensitive files to .gitignore:
+   echo "config.js" >> .gitignore
+   echo ".env" >> .gitignore
+   echo "**/apikey.txt" >> .gitignore
+   
+2. Use GitHub Secrets for CI/CD
+   - Repository Settings → Secrets → New secret
 
-**Extended Exposure to Elevated CO2:**
+3. Rotate keys regularly (every 90 days)
+   - Generate new key in Google AI Studio
+   - Revoke old key
 
-| PPM | Symptoms |
-|-----|----------|
-| 600-1000 | Drowsiness, poor concentration |
-| 1000-2500 | Headaches, fatigue, reduced cognitive function |
-| 2500-5000 | Increased heart rate, nausea |
-| > 5000 | Serious health risk, oxygen deprivation |
+4. Monitor usage in Google Cloud Console
+   - Check for unusual activity
+   - Set up usage alerts
+
+5. Set up usage quotas
+   - Prevent unexpected charges
+   - Limit daily requests
+```
+
+**If You Accidentally Exposed Your Key:**
+```plaintext
+1. IMMEDIATELY revoke the key in Google AI Studio
+2. Generate a new API key
+3. Remove from Git history:
+   git filter-branch --force --index-filter \
+   "git rm --cached --ignore-unmatch path/to/file" \
+   --prune-empty --tag-name-filter cat -- --all
+4. Force push to GitHub (if already pushed)
+5. Consider the old key compromised forever
+```
+
+### API Request Structure
+
+```javascript
+// Example API call from chatbot
+async function callGeminiAPI(text, image) {
+    const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + geminiApiKey;
+    
+    const parts = [];
+    
+    // Add system instructions
+    parts.push({
+        text: systemInstructions + '\n\nUser: ' + text
+    });
+    
+    // Add image if provided
+    if (image) {
+        const base64Data = await fileToBase64(image);
+        parts.push({
+            inline_data: {
+                mime_type: image.type,
+                data: base64Data
+            }
+        });
+    }
+    
+    // Make API request
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            contents: [{ parts: parts }],
+            generationConfig: {
+                temperature: 0.7,
+                topK: 40,
+                topP: 0.95,
+                maxOutputTokens: 1024
+            }
+        })
+    });
+    
+    return await response.json();
+}
+```
+
+### System Instructions
+
+The AI is configured with context about your ESP32 system:
+
+```javascript
+// Example structure - actual values are dynamic
+const systemInstructions = `
+You are a helpful AI assistant connected to an ESP32 air quality 
+monitoring system with CURRENT DATA:
+- Air Quality: [DYNAMIC] ([CO2_PPM] PPM)
+- Fan: [ON/OFF] at [SPEED]%
+- Buzzer: Pattern [0-3]
+- Data Points: [COUNT]/1440
+
+SAFETY THRESHOLDS:
+- 500+ PPM: CAUTION
+- 750+ PPM: WARNING  
+- 1000+ PPM: DANGER
+
+HARDWARE: ESP32 DevKit with sensors and web interface.
+
+RESPONSE STYLE: Keep responses SHORT (2-3 sentences max for 
+voice/video calls). Be helpful and conversational.
+`;
+```
+
+This gives the AI full context about your system in real-time!
 
 ---
 
 ## 🔧 Troubleshooting
 
-### ESP32 Not Detected
+### Common Issues & Solutions
 
-**Problem:** Computer doesn't recognize ESP32
+#### 1. ESP32 Not Detected
 
-**Solutions:**
-1. ✅ Install CP2102 USB driver
-2. ✅ Try different USB cable (must be data cable, not charge-only)
-3. ✅ Try different USB port
-4. ✅ Check Device Manager (Windows) or `ls /dev/tty*` (Mac/Linux)
-5. ✅ Press and hold **BOOT** button while uploading
-
-### Upload Failed / Timeout
-
-**Problem:** Code won't upload to ESP32
+**Symptoms:**
+- No COM port appears in Device Manager
+- Arduino IDE shows "No board found"
+- Upload fails immediately
 
 **Solutions:**
-1. ✅ Select correct board: **ESP32 Dev Module**
-2. ✅ Select correct COM port
-3. ✅ Lower upload speed: Tools → Upload Speed → **115200**
-4. ✅ Hold **BOOT** button during "Connecting..." message
-5. ✅ Press **EN** (reset) button after "Connecting..." appears
+```plaintext
+✅ Install CP210x driver properly
+   - Download from Silicon Labs website
+   - Run as administrator
+   - Restart computer after installation
 
-### WiFi Won't Connect
+✅ Try different USB cable
+   - Ensure it's a DATA cable (not charge-only)
+   - Some cables only provide power
 
-**Problem:** ESP32 can't connect to WiFi
+✅ Try different USB port
+   - Prefer USB 2.0 ports over USB 3.0
+   - Avoid USB hubs
 
-**Solutions:**
-1. ✅ Verify SSID and password are correct
-2. ✅ Use **2.4GHz WiFi only** (not 5GHz)
-3. ✅ Check WiFi signal strength (move closer to router)
-4. ✅ Disable MAC address filtering on router
-5. ✅ Try mobile hotspot instead
-6. ✅ Use Access Point mode (automatic fallback)
+✅ Check Device Manager
+   - Should show "Silicon Labs CP210x"
+   - Update driver if showing as "Unknown Device"
 
-### Speech Recognition Errors
-
-**Problem:** "Network error" in speech recognition
-
-**Solutions:**
-1. ✅ Requires **stable internet connection**
-2. ✅ Use **HTTPS** (required for Web Speech API)
-3. ✅ Grant microphone permissions in browser
-4. ✅ Use **Chrome, Edge, or Safari** (Firefox not fully supported)
-5. ✅ Check firewall isn't blocking microphone
-
-### Camera Not Working (Video Calls)
-
-**Problem:** Camera not detected or permission denied
-
-**Solutions:**
-1. ✅ Grant camera and microphone permissions
-2. ✅ Use **HTTPS** (required for getUserMedia API)
-3. ✅ Close other apps using camera (Zoom, Skype, etc.)
-4. ✅ Restart browser
-5. ✅ Check browser camera settings
-
-### AI Not Responding
-
-**Problem:** Chatbot doesn't reply or gives errors
-
-**Solutions:**
-1. ✅ Verify API key in Settings
-2. ✅ Check internet connection
-3. ✅ Ensure not exceeding API rate limits
-4. ✅ Check browser console for errors (F12)
-5. ✅ Try refreshing the page
-
-### Sensor Reading Issues
-
-**Problem:** MQ-135 shows incorrect or unstable readings
-
-**Solutions:**
-1. ✅ **Preheat sensor** for 24-48 hours before first use
-2. ✅ Check wiring connections
-3. ✅ Verify 5V power supply
-4. ✅ Calibrate in fresh air (outdoor reading should be ~400 PPM)
-5. ✅ Replace sensor if damaged
-
-### Memory / Upload Size Errors
-
-**Problem:** "Sketch too big" or memory errors
-
-**Solutions:**
-1. ✅ Select partition scheme: **Huge APP (3MB No OTA/1MB SPIFFS)**
-2. ✅ Update to ESP32 board version **2.0.14**
-3. ✅ Clear Arduino IDE cache: Delete `AppData/Local/Arduino15/tmp`
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how you can help:
-
-### Ways to Contribute
-
-1. **🐛 Report Bugs**
-   - Open an issue with detailed description
-   - Include error messages and screenshots
-   - Specify ESP32 board version and Arduino IDE version
-
-2. **💡 Suggest Features**
-   - Open an issue labeled "enhancement"
-   - Describe use case and benefits
-   - Provide examples if possible
-
-3. **📝 Improve Documentation**
-   - Fix typos or unclear instructions
-   - Add translations
-   - Create video tutorials
-
-4. **💻 Submit Code**
-   - Fork the repository
-   - Create feature branch: `git checkout -b feature-name`
-   - Make changes and test thoroughly
-   - Commit: `git commit -m "Add feature"`
-   - Push: `git push origin feature-name`
-   - Open Pull Request
-
-### Development Guidelines
-
-- **Code Style:** Follow Arduino C++ conventions
-- **Testing:** Test on actual ESP32 hardware
-- **Documentation:** Update README for new features
-- **Comments:** Add clear code comments
-- **Commit Messages:** Use descriptive messages
-
----
-
-## 📞 Contact
-
-**Developer:** HNK Horizon
-
-**Social Media:**
-- 🐦 **Twitter:** [@HnkHorizon](https://twitter.com/HnkHorizon)
-- 📱 **TikTok:** [@codingfever](https://tiktok.com/@codingfever)
-- 📺 **YouTube:** [@HNK2005](https://youtube.com/@HNK2005)
-- 📷 **Instagram:** [@hhnk.3693](https://instagram.com/hhnk.3693)
-- 📧 **Email:** hhnk3693@gmail.com
-
-**Project Links:**
-- 🌐 **Live Demo:** [air-monitoring-esp32.netlify.app](https://air-monitoring-esp32.netlify.app/)
-- 📺 **Setup Tutorials:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLrZbkNpNVSwwkA3nnQ5o0Pg8w6GCSDgYA)
-- 💻 **GitHub:** [This Repository](https://github.com/HorizonHnk/ESP32-AI-Powered-Air-Quality-Monitoring-System/)
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2025 HNK Horizon
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+✅ Press BOOT button during upload
+   - Some ESP32 boards require this
+   - Hold BOOT, press reset, release BOOT
 ```
 
----
+#### 2. WiFi Connection Failed
 
-## 🙏 Acknowledgments
+**Symptoms:**
+- "WiFi failed, starting AP mode" message
+- Can't access web interface
+- Long connection time
 
-- **Google Gemini AI** - For providing the powerful Gemini 2.0 Flash API
-- **Espressif Systems** - For the ESP32 platform and Arduino support
-- **Arduino Community** - For libraries and documentation
-- **Contributors** - Everyone who has helped improve this project
+**Solutions:**
+```plaintext
+✅ Verify WiFi credentials
+   ssid = "YourNetworkName"      // Exact match, case sensitive
+   password = "YourPassword"      // Must match exactly
 
----
+✅ Use 2.4 GHz network only
+   - ESP32 doesn't support 5 GHz
+   - Check router settings
+   - Create separate 2.4 GHz SSID if needed
 
-## 🌟 Star History
+✅ Check WiFi signal strength
+   - Move ESP32 closer to router
+   - Avoid thick walls/metal obstacles
+   - Signal strength > -70 dBm recommended
 
-If you find this project helpful, please consider giving it a ⭐ star on GitHub!
+✅ Disable MAC filtering temporarily
+   - Whitelist ESP32's MAC address
+   - Check router's connected devices
 
----
-
-## 📊 Project Stats
-
-- **Lines of Code:** ~2,500 (Arduino C++)
-- **HTML/CSS/JS:** ~3,500 lines
-- **Features:** 20+ including AI, IoT, sensors
-- **Supported Devices:** All modern browsers, ESP32 boards
-- **API Calls:** Optimized for Gemini 2.0 Flash
-- **Response Time:** < 2 seconds average
-
----
-
-## 🔮 Future Roadmap
-
-- [ ] **MQTT Integration** for IoT cloud platforms
-- [ ] **Mobile App** (Flutter) for remote monitoring
-- [ ] **Multiple Sensor Support** (temperature, humidity, PM2.5)
-- [ ] **Historical Data Graphs** with Chart.js
-- [ ] **Email/SMS Alerts** for critical conditions
-- [ ] **Voice Commands** ("Alexa, what's my air quality?")
-- [ ] **Machine Learning** predictions for air quality trends
-- [ ] **Solar Power Option** for off-grid operation
-
----
-
-## 📚 Additional Resources
-
-### Tutorials
-- [ESP32 Getting Started Guide](https://docs.espressif.com/projects/arduino-esp32/en/latest/)
-- [MQ-135 Sensor Calibration](https://lastminuteengineers.com/mq135-gas-sensor-arduino-tutorial/)
-- [Google Gemini AI Documentation](https://ai.google.dev/docs)
-
-### Related Projects
-- [ESP32 Weather Station](https://github.com/yourusername/esp32-weather)
-- [Arduino Air Quality Monitor](https://github.com/yourusername/arduino-air-monitor)
-- [IoT Home Automation](https://github.com/yourusername/iot-home)
-
----
-
-<div align="center">
-
-**Made with ❤️ by HNK Horizon**
-
-⭐ **Star this repo** if you found it useful! ⭐
-
-[Report Bug](https://github.com/yourusername/esp32-air-monitoring-ai/issues) · [Request Feature](https://github.com/yourusername/esp32-air-monitoring-ai/issues) · [Documentation](https://github.com/yourusername/esp32-air-monitoring-ai/wiki)
-
-</div>
+✅ Test with mobile hotspot
+   - Confirms ESP32 WiFi works
+   - Rules out router issues
+   - Use 2.4 GHz mobile hotspot
