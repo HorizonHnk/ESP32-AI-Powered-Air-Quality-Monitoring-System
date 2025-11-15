@@ -23,6 +23,7 @@
 - [AI Chatbot Features](#-ai-chatbot-features)
 - [API Configuration](#-api-configuration)
 - [Troubleshooting](#-troubleshooting)
+- [Video Tutorials](#-video-tutorials)
 - [Contributing](#-contributing)
 - [Contact](#-contact)
 - [License](#-license)
@@ -89,9 +90,17 @@ This project integrates **Google Gemini 2.0 Flash AI** with an **ESP32 microcont
 
 ## 🌐 Live Demo
 
-**Live Website**: [https://air-monitoring-esp32.netlify.app/](https://air-monitoring-esp32.netlify.app/)
+**🚀 Live Website**: [https://air-monitoring-esp32.netlify.app/](https://air-monitoring-esp32.netlify.app/)
 
-> This demonstrates the web interface running on ESP32. You can deploy this same interface on your own ESP32 board!
+> This is a live demonstration of the complete web interface running on ESP32 hardware. Experience the AI chatbot, voice calls, video calls, and real-time monitoring features. You can deploy this exact same interface on your own ESP32 board by following this guide!
+
+**Features you can try in the live demo:**
+- ✅ Full AI chatbot interface
+- ✅ Voice call simulation
+- ✅ Video call with camera access
+- ✅ Image upload and analysis
+- ✅ Real-time system status display
+- ✅ Responsive design on any device
 
 ---
 
@@ -972,6 +981,8 @@ This gives the AI full context about your system in real-time!
    - Some ESP32 boards require this
    - Hold BOOT, press reset, release BOOT
 ```
+
+📺 **Need visual help?** Check out our [ESP32 Setup Video Tutorial](#-video-tutorials)
 
 #### 2. WiFi Connection Failed
 
