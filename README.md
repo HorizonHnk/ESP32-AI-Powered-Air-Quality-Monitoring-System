@@ -1015,3 +1015,296 @@ This gives the AI full context about your system in real-time!
    - Confirms ESP32 WiFi works
    - Rules out router issues
    - Use 2.4 GHz mobile hotspot
+
+✅ Check router firewall settings
+   - Disable AP isolation
+   - Allow device-to-device communication
+```
+
+#### 3. Upload Fails / Timeout Errors
+
+**Symptoms:**
+- "Failed to connect to ESP32"
+- "A fatal error occurred: Timed out waiting for packet header"
+- Upload stuck at "Connecting..."
+
+**Solutions:**
+```plaintext
+✅ Hold BOOT button during upload
+   1. Click Upload in Arduino IDE
+   2. When you see "Connecting...", hold BOOT button
+   3. Release when upload starts
+   
+✅ Lower upload speed
+   - Tools → Upload Speed → 115200
+
+✅ Check USB cable quality
+   - Try a different cable
+   - Ensure it's for data, not just charging
+
+✅ Restart ESP32
+   - Unplug and replug USB
+   - Press EN/RST button
+```
+
+#### 4. Gemini API Errors
+
+**Symptoms:**
+- "API Error 400/401/429"
+- AI not responding
+- "Invalid API key" message
+
+**Solutions:**
+```plaintext
+✅ Verify API key is correct
+   - Check for extra spaces
+   - Ensure key starts with "AIzaSy"
+   - Generate new key if needed
+
+✅ Check API quota
+   - Free tier: 1,500 requests/day
+   - Monitor usage in Google AI Studio
+   - Wait if quota exceeded
+
+✅ Network connectivity
+   - ESP32 must be connected to internet
+   - Test with browser access
+   - Check router internet connection
+
+✅ API key permissions
+   - Enable Gemini API in Google Cloud Console
+   - Check key hasn't been revoked
+```
+
+#### 5. Voice/Video Call Not Working
+
+**Symptoms:**
+- Microphone permission denied
+- Camera not loading
+- No audio in/out
+
+**Solutions:**
+```plaintext
+✅ Browser permissions
+   - Allow microphone/camera in browser settings
+   - Chrome: Settings → Privacy → Site Settings
+   - Check for blocked permissions icon in address bar
+
+✅ Use supported browser
+   - Chrome/Edge: Full support ✅
+   - Safari: iOS/Mac support ✅
+   - Firefox: Limited support ⚠️
+
+✅ HTTPS requirement
+   - Some browsers require HTTPS for mic/camera
+   - Use IP address with http:// (usually works locally)
+   - Or set up SSL certificate for ESP32
+
+✅ Check device hardware
+   - Test mic/camera in other apps
+   - Ensure devices aren't being used by other apps
+   - Update device drivers
+```
+
+#### 6. Web Interface Not Loading
+
+**Symptoms:**
+- Blank page
+- "Page not found" error
+- Interface appears broken
+
+**Solutions:**
+```plaintext
+✅ Clear browser cache
+   - Ctrl+Shift+Delete
+   - Clear cache and cookies
+   - Reload page (Ctrl+F5)
+
+✅ Check partition scheme
+   - Must be set to "Huge APP (3MB)"
+   - Re-upload code with correct partition
+
+✅ Verify IP address
+   - Check Serial Monitor for correct IP
+   - Try http://[IP_ADDRESS] instead of just IP
+   - Ensure on same network as ESP32
+
+✅ Check ESP32 memory
+   - Web files might be too large
+   - Monitor serial output for errors
+```
+
+---
+
+## 📺 Video Tutorials
+
+### Complete ESP32 Setup Guide
+
+Watch our comprehensive video tutorial series on setting up ESP32 with Arduino IDE:
+
+**📺 YouTube Playlist**: [ESP32 Arduino IDE Setup & Programming](https://www.youtube.com/playlist?list=PLrZbkNpNVSwwkA3nnQ5o0Pg8w6GCSDgYA)
+
+### Tutorial Series Contents:
+
+#### **Video 1: Driver Installation & COM Port Setup**
+- Installing CP210x USB drivers
+- Verifying ESP32 connection in Device Manager
+- Identifying correct COM port
+- Troubleshooting connection issues
+- [Watch Now →](https://www.youtube.com/watch?v=BHSLjuXQjG8)
+
+#### **Video 2: WiFi Configuration**
+- Connecting ESP32 to WiFi networks
+- USB data transfer setup
+- Network configuration and testing
+- COM port verification
+- [Watch Now →](https://www.youtube.com/watch?v=i8w_SCkEG_E)
+
+#### **Video 3: Network Setup & IP Address**
+- WiFi setup for ESP32
+- Network configuration
+- Finding ESP32 IP address
+- Mobile hotspot configuration
+- [Watch Now →](https://www.youtube.com/watch?v=menWj2VLLm4)
+
+#### **Video 4: Complete Arduino IDE Configuration**
+- ESP32 board manager installation
+- Selecting correct board and port
+- Partition scheme setup (Huge APP)
+- WiFi connection testing
+- Serial monitor setup
+- Getting IP address
+- [Watch Now →](https://www.youtube.com/watch?v=_WWKDHn3IXw)
+
+#### **Video 5: Arduino IDE Installation**
+- Step-by-step Arduino IDE installation on Windows
+- ESP32 driver installation
+- Device manager verification
+- First-time setup guide
+- [Watch Now →](https://www.youtube.com/watch?v=TGtHY-SyurE)
+
+### 🎬 Quick Tips from Tutorials:
+
+**Important Settings:**
+- Always use **ESP32 Dev Module** board
+- Set Partition Scheme to **Huge APP (3MB)**
+- Use **2.4 GHz WiFi only** (not 5 GHz)
+- Install **Board Manager v2.0.14 or earlier** (avoid v2.0.15+)
+- Baud rate: **115200** for Serial Monitor
+
+**Common Fixes Covered:**
+- ✅ Driver installation issues
+- ✅ COM port not appearing
+- ✅ WiFi connection problems
+- ✅ Upload errors
+- ✅ Board selection confusion
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Whether it's bug fixes, feature additions, or documentation improvements, your help is appreciated.
+
+### How to Contribute:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/AmazingFeature`
+3. **Commit your changes**: `git commit -m 'Add some AmazingFeature'`
+4. **Push to the branch**: `git push origin feature/AmazingFeature`
+5. **Open a Pull Request**
+
+### Contribution Ideas:
+
+- 🐛 Bug fixes and improvements
+- ✨ New AI features or capabilities
+- 📱 Mobile UI enhancements
+- 🌐 Additional language support
+- 📊 New sensor integrations
+- 🎨 UI/UX improvements
+- 📚 Documentation updates
+
+---
+
+## 📞 Contact
+
+**Created by HNK Horizon**
+
+### 🌐 Connect With Me:
+
+<div align="center">
+
+| Platform | Link | Description |
+|:--------:|:-----|:------------|
+| 🐦 **Twitter** | [@HnkHorizon](https://twitter.com/HnkHorizon) | Latest updates and tech discussions |
+| 🎵 **TikTok** | [@codingfever](https://www.tiktok.com/@codingfever) | Quick coding tips and demos |
+| 📺 **YouTube** | [@HNK2005](https://www.youtube.com/@HNK2005) | Full tutorials and project videos |
+| 📷 **Instagram** | [@hhnk.3693](https://www.instagram.com/hhnk.3693) | Behind-the-scenes and updates |
+| 📧 **Email** | [hhnk3693@gmail.com](mailto:hhnk3693@gmail.com) | Direct contact for inquiries |
+
+</div>
+
+### 🎥 Educational Resources:
+
+**📺 ESP32 Setup Tutorials**: [Complete Playlist](https://www.youtube.com/playlist?list=PLrZbkNpNVSwwkA3nnQ5o0Pg8w6GCSDgYA)
+- Arduino IDE installation and configuration
+- Driver setup and COM port verification
+- WiFi connection and network setup
+- Complete programming guides
+
+**🚀 Live Demo**: [Air Monitoring System](https://air-monitoring-esp32.netlify.app/)
+- Try all features online
+- Test the AI chatbot interface
+- Experience voice and video calls
+- No hardware required to explore
+
+### 💬 Get in Touch:
+
+- 🐛 **Report bugs**: Open an issue on GitHub
+- 💡 **Feature requests**: Submit via GitHub discussions
+- 🤝 **Collaboration**: Email me directly
+- ❓ **Questions**: Comment on YouTube videos or open GitHub issue
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### MIT License Summary:
+- ✅ Commercial use
+- ✅ Modification
+- ✅ Distribution
+- ✅ Private use
+- ⚠️ Liability and warranty limitations
+
+---
+
+## ⭐ Show Your Support
+
+If you find this project helpful, please consider:
+- ⭐ **Starring the repository** on GitHub
+- 🔔 **Following** on social media for updates
+- 📺 **Subscribing** to the YouTube channel
+- 🤝 **Sharing** with others who might benefit
+- 💬 **Leaving feedback** or suggestions
+
+---
+
+## 🙏 Acknowledgments
+
+- **Google Gemini AI** - For providing powerful multimodal AI capabilities
+- **Espressif Systems** - For the amazing ESP32 platform
+- **Arduino Community** - For extensive libraries and support
+- **Open Source Contributors** - For continuous improvements and feedback
+
+---
+
+<div align="center">
+
+**Built with ❤️ by HNK Horizon**
+
+🤖 Powered by Gemini AI | 🔧 ESP32 | 🌐 Web Technologies
+
+[⬆ Back to Top](#-esp32-ai-powered-air-quality-monitoring-system)
+
+</div>
