@@ -90,7 +90,7 @@ This project integrates **Google Gemini 2.0 Flash AI** with an **ESP32 microcont
 
 ## 🌐 Live Demo
 
-**🚀 Live Website**: [https://air-monitoring-esp32.netlify.app/](https://air-monitoring-esp32.netlify.app/)
+**🚀 Live Website**: [https://air-monitoring-esp32.netlify.app/](https://esp32-air-monitoring.netlify.app/)
 
 > This is a live demonstration of the complete web interface running on ESP32 hardware. Experience the AI chatbot, voice calls, video calls, and real-time monitoring features. You can deploy this exact same interface on your own ESP32 board by following this guide!
 
@@ -1251,7 +1251,7 @@ Contributions are welcome! Whether it's bug fixes, feature additions, or documen
 - WiFi connection and network setup
 - Complete programming guides
 
-**🚀 Live Demo**: [Air Monitoring System](https://air-monitoring-esp32.netlify.app/)
+**🚀 Live Demo**: [Air Monitoring System](https://esp32-air-monitoring.netlify.app/)
 - Try all features online
 - Test the AI chatbot interface
 - Experience voice and video calls
